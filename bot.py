@@ -11,6 +11,6 @@ slash = SlashCommand(bot, sync_commands=True)
 bot.load_extension("cogs.voicechannels")
 bot.load_extension("cogs.errors")
 
-load_dotenv('voiceBotToken.env')
+load_dotenv('data/voiceBotToken.env')
 
 bot.run(os.getenv("TOKEN"))
