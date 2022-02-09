@@ -12,6 +12,6 @@ bot.load_extension("cogs.errors")
 bot.load_extension("cogs.reload")
 
 
-load_dotenv('voiceBotToken.env')
+load_dotenv('data/voiceBotToken.env')
 
 bot.run(os.getenv("TOKEN"))
