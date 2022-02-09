@@ -1,17 +1,18 @@
-from discord.ext import commands
-import discord
-from discord.ext.commands import context
+from nextcord.ext import commands
+import nextcord
+from nextcord.ext.commands import context
+from typing import List
 
-def getChannelName(member: discord.member):
+def getChannelName(member: nextcord.member):
     if member.nick == None:
         return str(member)[:-5] + "'s Channel"
     else:
         return str(member.nick) + "'s Channel"
 
 async def deleteChannel(old_channel):
-    await discord.VoiceChannel.delete(old_channel, reason = "don't flood server with channels")
+    await nextcord.VoiceChannel.delete(old_channel, reason = "don't flood server with channels")
 
-def getMaxBitRate(guild:discord.guild):
+def getMaxBitRate(guild:nextcord.guild):
     if guild.premium_subscription_count >= 30:
         return 384000
     elif guild.premium_subscription_count < 30 and guild.premium_subscription_count > 15:
@@ -49,3 +50,8 @@ def appendFile(file:str,new_element:str):
 def readFileToList(file:str):
     with open(file, "r") as f:
         return f.read().split(",")
+
+def add_fields(embed: nextcord.Embed, fields: List[tuple]):
+    for name, value, inline in fields:
+        embed.add_field(name=name, value=value, inline=inline)
+    return embed

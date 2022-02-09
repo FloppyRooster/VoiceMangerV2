@@ -1,9 +1,9 @@
-from discord import activity
-from discord.ext import commands
+from nextcord import activity
+from nextcord.ext import commands
 import sys
-from discord.channel import VoiceChannel
-import discord
-from discord.ext.commands import check,Context, context
+from nextcord.channel import VoiceChannel
+import netcord
+from netcord.ext.commands import check,Context, context
 
 def bitrateIs8000(*bitrate):
     async def predicate(ctx:commands.context):
